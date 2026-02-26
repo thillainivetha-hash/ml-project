@@ -1,0 +1,76 @@
+ML-Project  Documentation
+
+Stage 1: Basic Setup (Foundation)
+
+1. Create and navigate into a new directory
+   mkdir ml-project          # make a directory called ml-project
+   cd ml-project             # change into that directory
+2.Initialize a Git repository
+   git init                  # create a new .git folder, starting version control
+3. Create the four project files
+   touch train.py predict.py utils.py README.md
+   These commands generate empty placeholders for each file required by the project.
+4. Inspect repository status
+   git status                # lists untracked files and repo state
+
+ Stage 2: Version Control Workflow (Application)
+After editing `train.py` and `utils.py`, the following commands are run to record and push my work.
+
+1. Stage the modified files
+   git add train.py utils.py
+   Only the two changed files are added to the index; other files remain untracked.
+
+2. Create a commit with a message
+   git commit -m "Add training script and utilities"
+   
+   This snapshots the staged changes locally with the given note
+
+3. Create the remote repository
+
+1.	Go to GitHub,
+2.	 click New repository,
+3.	 name it `ml-project`,
+4.	 and create it.
+
+4. Link the local repo to GitHub
+   git remote add origin https://github.com/thillainivetha-hash/ml-project.git
+ 5. Push the commit to GitHub
+   git push -u origin master
+   Uploads the `master` branch and sets `origin/master` as the upstream for future pushes.
+
+Stage 3: Mini-Project - Collaborative Workflow (Synthesis)
+ Current scenario
+1. Remote has updated `predict.py` and `README.md`.
+2. Local  has modified `utils.py` and added a new `config.py` (not yet committed).
+
+ Workflow guide
+
+1. Synchronize with remote first
+   git pull origin main
+   This fetches changes from GitHub and merges them into my local branch. Always pull before committing our own work to avoid falling behind.
+
+2. Review changes
+   git status
+   git diff
+   Run `git status` to check current modifications and untracked files; `git diff` shows what we have changed.
+
+3. Stage our local edits and new file
+   git add utils.py config.py
+   
+4.Commit locally with a clear message
+   git commit -m "commiting new changes after my teammate"
+   Good commit messages help my teammates understand my  changes.
+
+5. Push to the remote repository
+   git push origin main
+   Sends my new commits to GitHub so others can access them.
+
+Potential issues & best practices
+
+- Merge conflicts: If me and my teammate edit the same lines, `git pull` will pause and flag conflicts. Have to resolve them manually, then `git add` and `git commit` to complete.
+- Out-of-date branch: Pulling regularly reduces the chance of non-fast-forward errors during `git push`.
+- Untracked files: Have remember to add new files or they won’t be included in commits/pushes.
+- Using feature branches for larger work. Each team /team members  can have a separate branch 
+
+
+
